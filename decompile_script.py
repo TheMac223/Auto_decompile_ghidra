@@ -3,6 +3,7 @@ from ghidra.util.task import ConsoleTaskMonitor
 from ghidra.program.model.listing import Function
 from java.io import FileWriter, BufferedWriter
 
+
 def decompile_functions():
     decomp_interface = DecompInterface()
     decomp_interface.openProgram(currentProgram)
@@ -19,7 +20,7 @@ def decompile_functions():
         try:
             decompiled_function = decomp_interface.decompileFunction(function, 30, monitor)
             if decompiled_function.decompileCompleted():
-                results.append("// Function: {}\n{}\n".format(function_name, decompiled_function.getDecompiledFunction().getC()))
+                results.append("{}\n".format( decompiled_function.getDecompiledFunction().getC()))
             else:
                 print("Failed to decompile function: {}".format(function_name))
         except Exception as e:
