@@ -15,9 +15,6 @@ def decompile_functions():
     while functions.hasNext() and not monitor.isCancelled():
         function = functions.next()
         function_name = function.getName()
-        
-        if function_name in exclude_func:
-            continue
 
         try:
             decompiled_function = decomp_interface.decompileFunction(function, 30, monitor)
