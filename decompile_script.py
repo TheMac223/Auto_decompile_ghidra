@@ -3,12 +3,6 @@ from ghidra.util.task import ConsoleTaskMonitor
 from ghidra.program.model.listing import Function
 from java.io import FileWriter, BufferedWriter
 
-exclude_func = [
-    '_start', 'deregister_tm_clones', 'register_tm_clones',
-    '__do_global_dtors_aux', 'frame_dummy', '__libc_csu_init', '__libc_csu_fini',
-    '_fini', '_init', '__gmon_start__'
-]
-
 def decompile_functions():
     decomp_interface = DecompInterface()
     decomp_interface.openProgram(currentProgram)
